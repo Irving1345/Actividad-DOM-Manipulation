@@ -47,7 +47,8 @@ createUser(user);
 
 const inputName = document.getElementById('name');
 const userName = document.getElementById('username');
-
+const ages = document.getElementById('ages')
+const aboutMe = document.getElementById('about')
 /*
 inputName.addEventListener('input', e => {
     console.log(e.target.value);
@@ -56,11 +57,6 @@ inputName.addEventListener('input', e => {
 */
 
 
-const profileBtn = document.getElementById('ProfileBtn');
-
-profileBtn.addEventListener('click', () => {
-    userName.textContent = inputName.value;
-})
 
 const users = [
     {
@@ -85,7 +81,47 @@ const users = [
             ]
         }
     }
+ 
 ]
+
+
+
+users.forEach(element => {
+            element.fav_music.bands.push('Los acostas', 'Lagrimita y Costel')
+            
+});
+
+
+
+const profileBtn = document.getElementById('ProfileBtn');
+
+profileBtn.addEventListener('click', (e) => {
+e.preventDefault();
+    userName.textContent = inputName.value;
+    const namevalue = inputName.value;
+    const ageValue = ages.value;
+    const aboutvalue = aboutMe.value;
+     
+
+    users.push({
+        id:4 ,
+        user_name: namevalue,
+        description: aboutvalue,
+        age: aboutvalue,
+        fav_music: {
+            bands: [
+                'Los Temerarios', 'Grupo Frontera', 'Conjunto Primavera', 'Tigres del Norte'
+            ]
+        }
+    });
+
+})
+
+    
+
+
+
+console.log(users)
 
 const CARD_SECTION = document.getElementById('profiles');
 
